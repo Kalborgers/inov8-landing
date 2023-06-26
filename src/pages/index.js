@@ -57,13 +57,13 @@ export default function Home() {
                     {/* CONTENT */}
                     <div className="flex flex-col h-full w-full z-20 absolute space-y-10">
                         {/* HEADER */}
-                        <div className="flex flex-col text-[#414046] ml-10">
+                        <div className="flex flex-col h-2/12 text-[#414046] ml-10">
                             <p className="text-7xl font-bold">Features</p>
                             <p className="text-3xl font-semibold">The multiple features of Para Po.</p>
                         </div>
 
                         {/* FIRST ROW 3 FEATURES */}
-                        <div className="flex flex-row justify-between px-24 space-x-24">
+                        <div className="flex flex-row h-5/12 justify-between px-24 space-x-24">
                             <div className="flex flex-col h-full w-96 bg-[#403F45] rounded-xl">
                                 <Image className="h-1/2 w-full" src={gps} />
                                 <div className="flex flex-col h-1/2 w-full items-center justify-between">
@@ -80,7 +80,7 @@ export default function Home() {
                         </div>
 
                         {/* SECOND ROW 2 FEATURES */}
-                        <div className="flex flex-row justify-center px-24 space-x-24">
+                        <div className="flex flex-row h-5/12 justify-center px-24 space-x-24">
                             <div className="flex flex-col h-full w-96 bg-[#403F45] rounded-xl">
                                 <Image className="h-1/2 w-full" src={gps} />
                                 <div className="flex flex-col h-1/2 w-full items-center justify-between">
