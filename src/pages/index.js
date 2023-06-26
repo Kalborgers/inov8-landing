@@ -102,8 +102,10 @@ export default function Home() {
                 </div>
 
                 {/* SIGNUP */}
-                <div id="signup">
-
+                <div id="signup" className="flex flex-col h-full w-full text-[#414046]">
+                    <p className="">Sign Up for a Demo!</p>
+                    <p className="">Have a personalized demonstration of Para Po with a member of the development team for free!</p>
+                    <p className="">Just fill up the form and a member of the team will get back to you.</p>
                 </div>
 
                 {/* CHOOSE PLAN */}
