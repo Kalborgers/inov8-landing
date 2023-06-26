@@ -5,6 +5,8 @@ import jeep from "@/assets/jeep.png";
 import commute from "@/assets/commute.png";
 import logo from "@/assets/logo1.png";
 
+import gps from "@/assets/gps.png";
+
 export default function Home() {
     return (
         <main className="bg-white">
@@ -37,17 +39,66 @@ export default function Home() {
                 </div>
 
                 {/* ABOUT */}
-                <div id="about" className="flex h-full w-full items-center justify-center">
-                    <div className="h-full w-2/3 z-10 mx-auto absolute">
-                        asd
+                <div id="about" className="flex h-full w-full items-center justify-end relative z-0">
+                    <div className="flex flex-col h-3/5 w-1/2 z-20 bg-[#403F45] rounded-xl items-center z-20 absolute">
+                        <p className="w-11/12 ml-14 mt-14 font-bold text-5xl">Tired of asking for information on commute routes in Metro Manila?</p>
+                        <p className="w-4/5 mt-12 text-3xl px-32 mx-auto text-justify">
+                            <span className="text-[#FDEC00]">Para Po</span> offers up to date and reliable information on transportation across Metro Manila.
+                        </p>
                     </div>
-                    <Image className="h-full w-full z-0 relative" src={jeep} />
+                    <div className="h-full w-full z-10 bg-[#403F45]/[.5] z-10 absolute"></div>
+                    <Image className="h-full w-full" src={commute} />
                 </div>
 
                 {/* FEATURES */}
-                {/* layer 2 divs, lower div for bg color: flex-col 2 child divs 1/3 yellow, 2/3 white */}
-                <div id="features">
+                {/* for bg, maybe layer 2 divs, lower div for bg color: flex-col 2 child divs 1/3 yellow, 2/3 white */}
+                <div id="features" className="flex h-full w-full items-center justify-end relative z-0">
 
+                    {/* CONTENT */}
+                    <div className="flex flex-col h-full w-full z-20 absolute space-y-10">
+                        {/* HEADER */}
+                        <div className="flex flex-col text-[#414046] ml-10">
+                            <p className="text-7xl font-bold">Features</p>
+                            <p className="text-3xl font-semibold">The multiple features of Para Po.</p>
+                        </div>
+
+                        {/* FIRST ROW 3 FEATURES */}
+                        <div className="flex flex-row justify-between px-24 space-x-24">
+                            <div className="flex flex-col h-full w-96 bg-[#403F45] rounded-xl">
+                                <Image className="h-1/2 w-full" src={gps} />
+                                <div className="flex flex-col h-1/2 w-full items-center justify-between">
+                                    <p className="text-3xl text-[#F3DF0F]">GPS</p>
+                                    <p className="text-lg text-center">Find your way through the map.</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col h-full w-96 bg-[#403F45] rounded-xl">
+                                asd
+                            </div>
+                            <div className="flex flex-col h-full w-96 bg-[#403F45] rounded-xl">
+                                asd
+                            </div>
+                        </div>
+
+                        {/* SECOND ROW 2 FEATURES */}
+                        <div className="flex flex-row justify-center px-24 space-x-24">
+                            <div className="flex flex-col h-full w-96 bg-[#403F45] rounded-xl">
+                                <Image className="h-1/2 w-full" src={gps} />
+                                <div className="flex flex-col h-1/2 w-full items-center justify-between">
+                                    <p className="text-3xl text-[#F3DF0F]">GPS</p>
+                                    <p className="text-lg text-center">Find your way through the map.</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col h-full w-96 bg-[#403F45] rounded-xl">
+                                asd
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* BG COLORS 1/3 2/3 white */}
+                    <div className="flex flex-col h-full w-full">
+                        <div className="h-1/3 w-full bg-[#F3DF0F] p-1"></div>
+                        <div className="h-2/3 w-full bg-white p-1"></div>
+                    </div>
                 </div>
 
                 {/* SIGNUP */}
