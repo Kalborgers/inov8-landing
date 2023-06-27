@@ -52,7 +52,7 @@ export default function Home() {
 
                 {/* FEATURES */}
                 {/* for bg, maybe layer 2 divs, lower div for bg color: flex-col 2 child divs 1/3 yellow, 2/3 white */}
-                <div id="features" className="flex h-full w-full items-center justify-end relative z-0">
+                <div id="features" className="flex h-fit w-full items-center justify-end relative z-0">
 
                     {/* CONTENT */}
                     <div className="flex flex-col h-full w-full z-20 absolute space-y-10">
