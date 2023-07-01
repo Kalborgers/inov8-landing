@@ -7,6 +7,13 @@ export default function Signup() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
+    const [disabled, setDisabled] = useState(false);
+
+    const onClick = () => {
+        setDisabled(true);
+        signupHandler();
+    };
+
     async function signupHandler(e) {
         try {
             if (firstName == "" || lastName == "" || email == "") {
@@ -39,6 +46,7 @@ export default function Signup() {
                 alert("Successfuly Signed Up");
                 console.log("Successfully Signed Up!");
             }
+            setDisabled(false);
         } catch (e) {
             console.log("Sign Up Failed: ", e);
         }
@@ -99,7 +107,8 @@ export default function Signup() {
                         </div>
                         <button
                             className="bg-[#f3df0f] rounded-md px-8 py-2 text-xl font-bold"
-                            onClick={signupHandler}
+                            disabled={disabled}
+                            onClick={onClick}
                         >
                             SIGN UP
                         </button>
