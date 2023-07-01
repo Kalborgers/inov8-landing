@@ -1,7 +1,7 @@
 import Script from "next/script";
 import { useState } from "react";
 import { signupDB } from "@/firebase/db";
-import { doc, setDoc, runTransaction } from "firebase/firestore";
+import { doc, runTransaction } from "firebase/firestore";
 
 export default function Signup() {
     const [firstName, setFirstName] = useState("");
@@ -23,7 +23,7 @@ export default function Signup() {
                 id++;
 
                 //Add new Sign up document
-                await setDoc(doc(signupDB, "SignUps", id.toString()), {
+                transaction.set(doc(signupDB, "SignUps", id.toString()), {
                     firstName: firstName,
                     lastName: lastName,
                     email: email
