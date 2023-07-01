@@ -7,34 +7,38 @@ export default function Signup() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-
     async function signupHandler(e) {
         try {
-            await runTransaction(signupDB, async (transaction) => {
-                var totalCountRef = doc(signupDB, "SignUps", "TotalCount");
-                //Check for total number of Sign Ups
-                var totalCountDoc = await transaction.get(totalCountRef);
-                if (!totalCountDoc.exists()) {
-                    throw "Document does not exist!";
-                }
+            if (firstName == "" || lastName == "" || email == "") {
+                alert("A field is empty!");
+            } else {
+                await runTransaction(signupDB, async (transaction) => {
+                    var totalCountRef = doc(signupDB, "SignUps", "TotalCount");
+                    //Check for total number of Sign Ups
+                    var totalCountDoc = await transaction.get(totalCountRef);
+                    if (!totalCountDoc.exists()) {
+                        throw "Document does not exist!";
+                    }
 
-                //Increment
-                var id = totalCountDoc.get("num");
-                id++;
+                    //Increment
+                    var id = totalCountDoc.get("num");
+                    id++;
 
-                //Add new Sign up document
-                transaction.set(doc(signupDB, "SignUps", id.toString()), {
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email
+                    //Add new Sign up document
+                    transaction.set(doc(signupDB, "SignUps", id.toString()), {
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email
+                    });
+
+                    //Update total number of sign ups
+                    transaction.update(totalCountRef, {
+                        num: id
+                    });
                 });
-
-                //Update total number of sign ups
-                transaction.update(totalCountRef, {
-                    num: id
-                });
-            });
-            console.log("Successfully Signed Up!");
+                alert("Successfuly Signed Up");
+                console.log("Successfully Signed Up!");
+            }
         } catch (e) {
             console.log("Sign Up Failed: ", e);
         }
