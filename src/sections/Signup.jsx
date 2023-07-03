@@ -8,6 +8,7 @@ export default function Signup() {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [disabled, setDisabled] = useState(false);
+    const [plan, setPlan] = useState("Free");
 
     const onClick = () => {
         setDisabled(true);
@@ -35,7 +36,8 @@ export default function Signup() {
                     transaction.set(doc(signupDB, "SignUps", id.toString()), {
                         firstName: firstName,
                         lastName: lastName,
-                        email: email
+                        email: email,
+                        plan: plan,
                     });
 
                     //Update total number of sign ups
@@ -47,6 +49,10 @@ export default function Signup() {
                 console.log("Successfully Signed Up!");
             }
             setDisabled(false);
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPlan("Free");
         } catch (e) {
             console.log("Sign Up Failed: ", e);
         }
@@ -67,11 +73,32 @@ export default function Signup() {
                 </p>
             </div>
             <div className="w-full bg-[#414046] p-12">
-                <div className="w-3/4 m-auto flex flex-row justify-evenly">
-                    <div className="flex flex-col justify-center items-center bg-white rounded-xl align-middle p-24 space-y-4">
-                        Plans
+                <div className="w-3/4 m-auto flex flex-row justify-between space-x-8">
+                    <div className="w-full flex flex-col space-y-12 items-center">
+                        <button className="w-2/3" onClick={() => setPlan("Free")}>
+                            <div className={`${plan === "Free" ? "bg-[#F3DF0F] hover:bg-[#C9B90D] " : "bg-white hover:bg-[#CECECE] "} relative rounded-3xl p-12`}>
+                                <p className="text-left font-bold text-4xl absolute top-0 left-0 pl-10 pt-4">Free</p>
+                                <ul className="list-disc text-left text-md pt-4">
+                                    <li>Access to GPS Chatbot and 360 view of locations. </li>
+                                    <li>Commute Prices.</li>
+                                    <li>Real-time routing with updates based on up-to-date news on transportation.</li>
+                                    <li>Ability to post in the community forum and discuss with other people.</li>
+                                </ul>
+                            </div>
+                        </button>
+                        <button className="w-2/3" onClick={() => setPlan("Pro")}>
+                            <div className={`${plan === "Pro" ? "bg-[#F3DF0F] hover:bg-[#C9B90D] " : "bg-white hover:bg-[#CECECE] "} relative rounded-3xl p-12`}>
+                                <p className="text-left font-bold text-4xl absolute top-0 left-0 pl-10 pt-4">Pro <span className="text-sm font-semibold pl-1">PHP 150/month</span></p>
+                                <ul className="list-disc text-left text-md pt-4">
+                                    <li>All the aforementioned features</li>
+                                    <li>Prices and time estimates of alternative routes.</li>
+                                    <li>Access to community chat for real time discussions based on location.</li>
+                                    <li>Ad-free experience.</li>
+                                </ul>
+                            </div>
+                        </button>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white rounded-xl align-middle p-24 space-y-4">
+                    <div className="flex flex-col justify-center items-center bg-white rounded-xl align-middle p-12 space-y-10 text-xl">
                         <div className="flex flex-col">
                             <label htmlFor="firstName">First Name:</label>
                             <input
@@ -106,7 +133,7 @@ export default function Signup() {
                             ></input>
                         </div>
                         <button
-                            className="bg-[#f3df0f] rounded-md px-8 py-2 text-xl font-bold"
+                            className="bg-[#f3df0f] rounded-md px-8 py-2 text-xl font-bold hover:bg-[#C9B90D]"
                             disabled={disabled}
                             onClick={onClick}
                         >
