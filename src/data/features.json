@@ -1,0 +1,27 @@
+[
+    {
+        "name": "GPS",
+        "description": "Find your way through the map.",
+        "img": "/assets/gps.png"
+    },
+    {
+        "name": "COMMUNITY FORUM",
+        "description": "Post, ask, and receive answers from real commuters.",
+        "img": "/assets/community.svg"
+    },
+    {
+        "name": "AI CHAT",
+        "description": "Chat and Ask an AI bot like ChatGPT.",
+        "img": "/assets/chat.svg"
+    },
+    {
+        "name": "TRANSPORT NEWS",
+        "description": "Get up-to-date news on transportation.",
+        "img": "/assets/chat.svg"
+    },
+    {
+        "name": "REAL-TIME ROUTING",
+        "description": "Get the best routes in real-time.",
+        "img": "/assets/realtime.svg"
+    }
+]
